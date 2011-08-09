@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE module PUBLIC "-//OpenMRS//DTD OpenMRS Config 1.2//EN" "../lib-common/config-1.2.dtd">
+
+<module configVersion="1.2">
+	
+	<!-- Base Module Properties -->
+	<id>hfeprogramenrollment</id>
+	<name>Html Form Program Enrollment Module</name>
+	<version>0.1</version>
+	<package>org.openmrs.module.htmlformprogramenrollment</package>
+	<author>Michael Leibfried, innoQ Deutschland GmbH</author>
+	<description>
+			Simplified Program Enrollment editing in Html Forms
+	</description>
+
+	<activator>org.openmrs.module.htmlformprogramenrollment.HtmlformProgramEnrollementActivator</activator>
+	
+	<require_version>1.5.2</require_version>
+
+	<require_modules>
+		<require_module>org.openmrs.module.htmlformentry</require_module>
+		<version>1.7.2</version>
+	</require_modules>
+
+    <!-- AOP -->
+    <!--  
+    <advice>
+	    <point>org.openmrs.api.PatientService</point>
+	    <class>org.openmrs.module.htmlformprogramenrollment.advisor.PatientServiceAroundAdvisor</class>
+    </advice>
+	-->
+	
+	<!-- Extensions -->
+<!--
+	<extension>
+		<point>org.openmrs.findPatient</point>
+		<class>org.openmrs.module.htmlformprogramenrollment.extension.html.SoundexExt</class>
+	</extension>
+
+-->
+
+	<!-- Required Privileges 
+	<privilege>
+		<name>Form Entry</name>
+		<description>Allows user to access Form Entry pages/functions</description>
+	</privilege>
+	 /Required Privileges -->
+
+	<!--
+	<dwr>
+		<allow>
+			<create creator="new" javascript="DWRFormEntryService">
+				<param name="class" value="org.openmrs.module.@MODULE_ID@.web.DWRFormEntryService"/>
+				<include method="enterForm"/>
+			</create>
+		</allow>
+
+		<signatures>
+			<![CDATA[
+			import @MODULE_PACKAGE@.web.DWRFormEntryService;
+			DWRFormEntryService.enterForm(Integer patientId, Integer formId, boolean useEncounter, List<String> fields);
+			]]>
+		</signatures>	
+	</dwr>
+	-->
+	
+	<!-- Servlets -->
+	<!-- Accessed through the url /pageContext()/moduleServlet/<moduleId>/<servlet-name> -->
+	<!-- 
+ 	<servlet>
+ 		<servlet-name>rest</servlet-name>
+ 		<servlet-class>@MODULE_PACKAGE@.web.RestWebServiceServlet</servlet-class>
+ 	</servlet>
+	 -->
+	<!-- /Servlets -->
+	
+	
+	<!-- Internationalization -->
+	<!-- All message codes should start with @MODULE_ID@.* -->
+	<messages>
+		<lang>en</lang>
+		<file>messages.properties</file>
+	</messages>
+	<!-- /Internationalization -->
+	
+</module>
+
